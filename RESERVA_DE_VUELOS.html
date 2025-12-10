@@ -1,17 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RESERVA_DE_VUELOS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHIfloFLY - Reserva de vuelos</title>
+  <link rel="stylesheet" href="RESERVA_DE_VUELOS.css">
 </head>
-<div><h1>CHIfloFLY &#128746;</h1></div>
 
 <body>
-    <p>RESERVAS DE VUELOS</p>
-    <div>RESERVAS</div>
-    <div>}</div>
 
-    
+  <div class="app">
+
+    <header class="header">
+      <div class="header-bg">
+        <img src="avion.jpg" alt="Vista desde el avión">
+      </div>
+
+      <div class="brand">
+        <div class="brand-logo">✈</div>
+
+        <div class="brand-text">
+          <h1>CHIfloFLY</h1>
+          <p>que el viento de kasa te lleve a un lindo viaje</p>
+        </div>
+      </div>
+
+      <div class="chip">PROYECTO_TECNOLOGÍAS_EMERGENTES</div>
+    </header>
+
+    <form id="bookingForm" autocomplete="off">
+      <div id="errorBox" class="error"></div>
+
+      <div class="trip-type">
+        <label>
+          <input type="radio" name="tripType" value="ida-vuelta" checked>
+          Ida y vuelta
+        </label>
+
+        <label>
+          <input type="radio" name="tripType" value="solo-ida">
+          Solo ida
+        </label>
+      </div>
+
+      <div class="grid">
+
+        <div class="field">
+          <label for="origen">Origen</label>
+          <select id="origen" required>
+            <option value="">Selecciona ciudad</option>
+            <option value="LPB">La Paz (LPB)</option>
+            <option value="VVI">Santa Cruz (VVI)</option>
+            <option value="CBB">Cochabamba (CBB)</option>
+            <option value="TJA">Tarija (TJA)</option>
+            <option value="SRE">Sucre (SRE)</option>
+            <option value="ORU">Oruro (ORU)</option>
+            <option value="POI">Potosí (POI)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="destino">Destino</label>
+          <select id="destino" required>
+            <option value="">Selecciona ciudad</option>
+            <option value="LPB">La Paz (LPB)</option>
+            <option value="VVI">Santa Cruz (VVI)</option>
+            <option value="CBB">Cochabamba (CBB)</option>
+            <option value="TJA">Tarija (TJA)</option>
+            <option value="SRE">Sucre (SRE)</option>
+            <option value="ORU">Oruro (ORU)</option>
+            <option value="POI">Potosí (POI)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="fechaSalida">Fecha de salida</label>
+          <input type="date" id="fechaSalida" required>
+        </div>
+
+        <div class="field">
+          <label for="fechaRegreso">Fecha de regreso</label>
+          <input type="date" id="fechaRegreso">
+          <small>Se desactiva si eliges “Solo ida”</small>
+        </div>
+
+        <div class="field">
+          <label for="pasajeros">Pasajeros</label>
+          <input type="number" id="pasajeros" min="1" max="9" value="1" required>
+        </div>
+
+        <div class="field">
+          <label for="clase">Clase</label>
+          <select id="clase">
+            <option value="economy">Económica</option>
+            <option value="premium">Premium</option>
+            <option value="business">Business</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="moneda">Moneda</label>
+          <select id="moneda" disabled>
+            <option value="BOB" selected>BOB (Bolivianos)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="codigoPromo">Código promocional</label>
+          <input type="text" id="codigoPromo" placeholder="OPCIONAL">
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <p class="hint">Completa los datos y haz clic en “Buscar vuelos”.</p>
+
+        <button type="submit">
+          <span class="plane-icon">✈</span>
+          Buscar vuelos
+        </button>
+      </div>
+    </form>
+
+    <section id="results" class="results empty">
+      No hay resultados todavía. Realiza una búsqueda.
+    </section>
+  </div>
+
+  <div id="notificacion" class="noti-oculto">
+    ✔ Tu vuelo ha sido reservado
+  </div>
+
+  <script src="RESERVA_DE_VUELOS.js"></script>
 </body>
 </html>
